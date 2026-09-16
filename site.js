@@ -8,7 +8,6 @@ const path = require('path');
 const SITE = {
   title: '전설의 안나 입고 현황',
   subtitle: 'Yumiko Anna Duo · Silver · L',
-  from: '승찬',
   message: '입고되면 여기가 제일 먼저 바뀌어요. 1시간마다 자동으로 확인 중 🩰',
 };
 // ─────────────────────────────────────────────────────────────
@@ -131,8 +130,7 @@ function render(st) {
 
   <footer>
     <div class="msg">${esc(SITE.message)}</div>
-    마지막 확인 ${esc(kst(st.checkedAt))} (KST)<br>
-    from ${esc(SITE.from)} ♥
+    마지막 확인 ${esc(kst(st.checkedAt))} (KST)
   </footer>
 </div>
 </body>
