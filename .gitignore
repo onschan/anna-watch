@@ -1,0 +1,4 @@
+state.json
+watch.log
+launchd.*.log
+.DS_Store

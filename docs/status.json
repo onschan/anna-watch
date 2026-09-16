@@ -1,0 +1,74 @@
+{
+  "title": "전설의 안나 입고 현황",
+  "subtitle": "Yumiko Anna Duo · Silver · L",
+  "checkedAt": "2026-09-16T02:06:16.676Z",
+  "available": [],
+  "shops": [
+    {
+      "key": "nisarat",
+      "name": "니사라트",
+      "price": "148,000원",
+      "where": "온라인 · 매장",
+      "url": "https://nisarat.shop/product/detail.html?product_no=2936&cate_no=141&display_group=1",
+      "status": "sold_out",
+      "detail": "품절 표시",
+      "checkedAt": "2026-09-16T02:06:14.204Z"
+    },
+    {
+      "key": "eballetshop",
+      "name": "이발레샵",
+      "price": "159,000원",
+      "where": "온라인 · 분당",
+      "url": "https://www.eballetshop.com/goods/goods_view.php?goodsNo=9199",
+      "status": "sold_out",
+      "detail": "XS S [품절] M [품절] L [품절]",
+      "checkedAt": "2026-09-16T02:06:14.687Z"
+    },
+    {
+      "key": "toptoe",
+      "name": "탑토",
+      "price": "172,000원",
+      "where": "온라인 · 왕십리",
+      "url": "http://toptoe.kr/shop/shopdetail.html?branduid=12256184",
+      "status": "sold_out",
+      "detail": "품절 표시",
+      "checkedAt": "2026-09-16T02:06:14.885Z"
+    }
+  ],
+  "lists": [
+    {
+      "key": "toptoe-category",
+      "name": "탑토 신규 실버",
+      "detail": "실버 상품 1개",
+      "ok": true,
+      "checkedAt": "2026-09-16T02:06:14.933Z"
+    },
+    {
+      "key": "vdenie",
+      "name": "브이데니에",
+      "detail": "Anna 1개",
+      "ok": true,
+      "checkedAt": "2026-09-16T02:06:15.268Z"
+    },
+    {
+      "key": "renverse",
+      "name": "랑베르쎄",
+      "detail": "유미코 36개 중 안나 0개",
+      "ok": true,
+      "checkedAt": "2026-09-16T02:06:15.735Z"
+    },
+    {
+      "key": "yumiko-rtw",
+      "name": "Yumiko 공식 기성품",
+      "detail": "3/3 리전 조회, Anna 실버 0개",
+      "ok": true,
+      "checkedAt": "2026-09-16T02:06:16.676Z"
+    }
+  ],
+  "mto": {
+    "name": "Yumiko 일본 공식몰 주문제작",
+    "price": "약 25만 원 (관세 별도)",
+    "note": "언제든 가능 · 6~8주 제작",
+    "url": "https://jp.yumiko.com/products/anna-duo-1"
+  }
+}
