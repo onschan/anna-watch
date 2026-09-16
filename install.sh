@@ -28,7 +28,7 @@ cat > "$PLIST" <<EOF
   <key>StandardErrorPath</key><string>$DIR/launchd.err.log</string>
   <key>EnvironmentVariables</key>
   <dict>
-    <key>PATH</key><string>/usr/local/bin:/usr/bin:/bin</string>
+    <key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
     <key>SLACK_WEBHOOK_URL</key><string>${SLACK_WEBHOOK_URL:-}</string>
   </dict>
 </dict>
