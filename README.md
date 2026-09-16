@@ -14,6 +14,8 @@ Yumiko "전설의 안나" (Anna Duo · CV-Silver 상의 / N-Silver 하의 · 캡
 | 랑베르쎄 유미코 | 안나 신규 등록 |
 | Yumiko 공식 Ready to Wear (JP/US/EU) | Anna + Silver 상품 등장 / L 재고 |
 
+**현황 페이지:** https://onschan.github.io/anna-watch/ — `check.js`가 매 실행마다 `docs/`를 다시 만들고 GitHub에 푸시한다 (문구는 `site.js` 상단 `SITE`에서 수정).
+
 변화가 있을 때만 macOS 알림. 파싱 실패는 한 번만 경고하고 복구될 때까지 조용히.
 
 ## 사용
