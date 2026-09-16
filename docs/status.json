@@ -1,7 +1,7 @@
 {
   "title": "전설의 안나 입고 현황",
   "subtitle": "Yumiko Anna Duo · Silver · L",
-  "checkedAt": "2026-09-16T02:12:18.617Z",
+  "checkedAt": "2026-09-16T02:15:31.088Z",
   "available": [],
   "shops": [
     {
@@ -12,7 +12,7 @@
       "url": "https://nisarat.shop/product/detail.html?product_no=2936&cate_no=141&display_group=1",
       "status": "sold_out",
       "detail": "품절 표시",
-      "checkedAt": "2026-09-16T02:12:15.929Z"
+      "checkedAt": "2026-09-16T02:15:28.448Z"
     },
     {
       "key": "eballetshop",
@@ -22,7 +22,7 @@
       "url": "https://www.eballetshop.com/goods/goods_view.php?goodsNo=9199",
       "status": "sold_out",
       "detail": "XS S [품절] M [품절] L [품절]",
-      "checkedAt": "2026-09-16T02:12:16.416Z"
+      "checkedAt": "2026-09-16T02:15:28.952Z"
     },
     {
       "key": "toptoe",
@@ -32,7 +32,7 @@
       "url": "http://toptoe.kr/shop/shopdetail.html?branduid=12256184",
       "status": "sold_out",
       "detail": "품절 표시",
-      "checkedAt": "2026-09-16T02:12:16.630Z"
+      "checkedAt": "2026-09-16T02:15:29.167Z"
     }
   ],
   "lists": [
@@ -41,34 +41,48 @@
       "name": "탑토 신규 실버",
       "detail": "실버 상품 1개",
       "ok": true,
-      "checkedAt": "2026-09-16T02:12:16.740Z"
+      "checkedAt": "2026-09-16T02:15:29.217Z"
     },
     {
       "key": "vdenie",
       "name": "브이데니에",
       "detail": "Anna 1개",
       "ok": true,
-      "checkedAt": "2026-09-16T02:12:17.151Z"
+      "checkedAt": "2026-09-16T02:15:29.567Z"
     },
     {
       "key": "renverse",
       "name": "랑베르쎄",
       "detail": "유미코 36개 중 안나 0개",
       "ok": true,
-      "checkedAt": "2026-09-16T02:12:17.547Z"
+      "checkedAt": "2026-09-16T02:15:30.124Z"
     },
     {
       "key": "yumiko-rtw",
       "name": "Yumiko 공식 기성품",
       "detail": "3/3 리전 조회, Anna 실버 0개",
       "ok": true,
-      "checkedAt": "2026-09-16T02:12:18.617Z"
+      "checkedAt": "2026-09-16T02:15:31.088Z"
     }
   ],
-  "mto": {
-    "name": "Yumiko 일본 공식몰 주문제작",
-    "price": "약 25만 원 (관세 별도)",
-    "note": "언제든 가능 · 6~8주 제작",
-    "url": "https://jp.yumiko.com/products/anna-duo-1"
-  }
+  "always": [
+    {
+      "name": "Yumiko 일본 공식몰 주문제작",
+      "price": "¥25,500 + 배송·관세 ≈ 28~31만 원",
+      "note": "직접 주문 · 6~8주 제작",
+      "url": "https://jp.yumiko.com/products/anna-duo-1"
+    },
+    {
+      "name": "자르켓 (네이버 구매대행)",
+      "price": "249,000원",
+      "note": "전설의 안나 구성 그대로 대행 · 관세 포함 · 6~8주",
+      "url": "https://smartstore.naver.com/jarket"
+    },
+    {
+      "name": "텐노가와 (네이버 구매대행)",
+      "price": "175,000원 + 배송 25,000원",
+      "note": "Anna 단색 주문제작 대행",
+      "url": "https://smartstore.naver.com/tennokawa"
+    }
+  ]
 }

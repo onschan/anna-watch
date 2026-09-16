@@ -24,7 +24,11 @@ const LISTS = [
   { key: 'renverse', name: '랑베르쎄' },
   { key: 'yumiko-rtw', name: 'Yumiko 공식 기성품' },
 ];
-const MTO = { name: 'Yumiko 일본 공식몰 주문제작', price: '약 25만 원 (관세 별도)', note: '언제든 가능 · 6~8주 제작', url: 'https://jp.yumiko.com/products/anna-duo-1' };
+const ALWAYS = [
+  { name: 'Yumiko 일본 공식몰 주문제작', price: '¥25,500 + 배송·관세 ≈ 28~31만 원', note: '직접 주문 · 6~8주 제작', url: 'https://jp.yumiko.com/products/anna-duo-1' },
+  { name: '자르켓 (네이버 구매대행)', price: '249,000원', note: '전설의 안나 구성 그대로 대행 · 관세 포함 · 6~8주', url: 'https://smartstore.naver.com/jarket' },
+  { name: '텐노가와 (네이버 구매대행)', price: '175,000원 + 배송 25,000원', note: 'Anna 단색 주문제작 대행', url: 'https://smartstore.naver.com/tennokawa' },
+];
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
@@ -39,13 +43,14 @@ function buildStatus(state) {
   const lists = LISTS.map((l) => ({ ...l, detail: s[l.key]?.detail || '', ok: s[l.key] && !s[l.key].error, checkedAt: s[l.key]?.lastChecked }));
   const checkedAt = Object.values(s).map((x) => x.lastChecked).filter(Boolean).sort().pop() || null;
   const available = shops.filter((x) => x.status === 'in_stock');
-  return { title: SITE.title, subtitle: SITE.subtitle, checkedAt, available: available.map((x) => x.name), shops, lists, mto: MTO };
+  return { title: SITE.title, subtitle: SITE.subtitle, checkedAt, available: available.map((x) => x.name), shops, lists, always: ALWAYS };
 }
 
 function render(st) {
   const any = st.available.length > 0;
   const hero = any
-    ? `<div class="hero yes"><div class="big">🎉 지금 살 수 있어요!</div><div class="sub">${esc(st.available.join(', '))}에 L 사이즈 있음 — 서둘러요</div></div>`
+    ? `<div class="hero yes"><div class="big">🎉 지금 살 수 있어요!</div><div class="sub">${esc(st.available.join(', '))}에 L 사이즈 있음 — 서둘러요</div>
+      ${st.shops.filter((x) => x.status === 'in_stock').map((x) => `<a class="btn" href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}에서 바로 구매 →</a>`).join('')}</div>`
     : `<div class="hero no"><div class="big">아직 품절이에요</div><div class="sub">국내 3곳 모두 L 사이즈 품절 · 들어오면 바로 바뀌어요</div></div>`;
 
   const shopCards = st.shops
@@ -56,6 +61,7 @@ function render(st) {
         <div class="row"><div class="name">${esc(sh.name)}</div><div class="badge">${label}</div></div>
         <div class="meta">${esc(sh.price)} · ${esc(sh.where)}</div>
         ${/\[품절\]/.test(sh.detail) ? `<div class="detail">사이즈: ${esc(sh.detail)}</div>` : ''}
+        <div class="go">${sh.status === 'in_stock' ? '바로 구매하기 →' : '상품 페이지 · 재입고 알림 신청 →'}</div>
       </a>`;
     })
     .join('\n');
@@ -102,6 +108,9 @@ function render(st) {
   .mini { display:flex; justify-content:space-between; gap:12px; font-size:13px; padding:8px 2px; border-bottom:1px dashed var(--line); color:var(--muted) }
   .mini span:last-child { text-align:right } .warn { color:var(--unk) }
   .mto { background:linear-gradient(135deg,#fff,#f3eef8); }
+  .go { margin-top:10px; font-size:13px; font-weight:700; color:#6b5b85 }
+  .card.ok .go { color:var(--ok) }
+  .btn { display:inline-block; margin-top:12px; margin-right:6px; background:var(--ok); color:#fff; font-weight:700; padding:10px 16px; border-radius:12px; text-decoration:none; font-size:14px }
   footer { text-align:center; color:var(--muted); font-size:12px; margin-top:28px; line-height:1.7 }
   footer .msg { color:var(--ink); font-size:13px; margin-bottom:6px }
 </style>
@@ -122,11 +131,13 @@ function render(st) {
   <h2>다른 곳도 보고 있어요</h2>
   ${listRows}
 
-  <h2>기다리기 싫으면</h2>
-  <a class="card mto" href="${esc(st.mto.url)}" target="_blank" rel="noopener">
-    <div class="row"><div class="name">${esc(st.mto.name)}</div><div class="badge" style="background:#ece7f1;color:#5a4d6b">항상 가능</div></div>
-    <div class="meta">${esc(st.mto.price)} · ${esc(st.mto.note)}</div>
-  </a>
+  <h2>기다리기 싫으면 (항상 주문 가능)</h2>
+  ${st.always.map((a) => `<a class="card mto" href="${esc(a.url)}" target="_blank" rel="noopener">
+    <div class="row"><div class="name">${esc(a.name)}</div><div class="badge" style="background:#ece7f1;color:#5a4d6b">항상 가능</div></div>
+    <div class="meta">${esc(a.price)}</div>
+    <div class="detail">${esc(a.note)}</div>
+    <div class="go">주문하러 가기 →</div>
+  </a>`).join('\n')}
 
   <footer>
     <div class="msg">${esc(SITE.message)}</div>
