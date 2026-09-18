@@ -16,6 +16,15 @@ const { execFileSync } = require('child_process');
 const { buildSite } = require('./site');
 
 const ROOT = __dirname;
+
+// .env (KEY=VALUE 한 줄씩) → process.env. 이미 있는 값은 덮지 않음. 알림 설정용.
+try {
+  for (const line of fs.readFileSync(path.join(ROOT, '.env'), 'utf8').split('\n')) {
+    const m = line.match(/^\s*([A-Z_][A-Z0-9_]*)\s*=\s*(.*?)\s*$/);
+    if (m && !(m[1] in process.env)) process.env[m[1]] = m[2].replace(/^["']|["']$/g, '');
+  }
+} catch {}
+
 const STATE_FILE = path.join(ROOT, 'state.json');
 const LOG_FILE = path.join(ROOT, 'watch.log');
 const DOCS_DIR = path.join(ROOT, 'docs');
@@ -107,10 +116,46 @@ async function notifySlack(title, message, url) {
   }
 }
 
+// 이메일: macOS 내장 curl로 SMTP(TLS) 전송. 외부 패키지 없음.
+// 필요 env: EMAIL_TO, SMTP_USER, SMTP_PASS (앱 비밀번호), 선택 SMTP_HOST(기본 smtp.gmail.com), SMTP_PORT(기본 465)
+function notifyEmail(title, message, url) {
+  const { EMAIL_TO, SMTP_USER, SMTP_PASS } = process.env;
+  if (!EMAIL_TO || !SMTP_USER || !SMTP_PASS) return;
+  const host = process.env.SMTP_HOST || 'smtp.gmail.com';
+  const port = process.env.SMTP_PORT || '465';
+  const b64 = (s) => Buffer.from(s, 'utf8').toString('base64');
+  const mail = [
+    `From: anna-watch <${SMTP_USER}>`,
+    `To: ${EMAIL_TO}`,
+    `Subject: =?UTF-8?B?${b64(title)}?=`,
+    'MIME-Version: 1.0',
+    'Content-Type: text/plain; charset=UTF-8',
+    'Content-Transfer-Encoding: base64',
+    '',
+    b64(`${title}\n\n${message}\n\n${url || ''}\n\n— anna-watch (${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })})`),
+    '',
+  ].join('\r\n');
+  const tmp = path.join(ROOT, '.mail.tmp');
+  try {
+    fs.writeFileSync(tmp, mail);
+    execFileSync('curl', [
+      '-sS', '--ssl-reqd', '--url', `smtps://${host}:${port}`,
+      '--mail-from', SMTP_USER, '--mail-rcpt', EMAIL_TO,
+      '--user', `${SMTP_USER}:${SMTP_PASS}`, '--upload-file', tmp, '--max-time', '30',
+    ], { stdio: 'pipe' });
+    log(`이메일 발송: ${EMAIL_TO}`);
+  } catch (e) {
+    log(`이메일 실패: ${(e.stderr || e.message).toString().trim().split('\n').pop()}`);
+  } finally {
+    try { fs.unlinkSync(tmp); } catch {}
+  }
+}
+
 async function notify(title, message, url) {
   log(`🔔 ${title} — ${message} ${url || ''}`);
   if (DRY) return;
   notifyMac(title, message);
+  notifyEmail(title, message, url);
   await notifySlack(title, message, url);
 }
 

@@ -29,7 +29,6 @@ cat > "$PLIST" <<EOF
   <key>EnvironmentVariables</key>
   <dict>
     <key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
-    <key>SLACK_WEBHOOK_URL</key><string>${SLACK_WEBHOOK_URL:-}</string>
   </dict>
 </dict>
 </plist>
