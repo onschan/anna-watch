@@ -7,7 +7,7 @@ Yumiko "전설의 안나" (Anna Duo · CV-Silver 상의 / N-Silver 하의 · 캡
 | 소스 | 알림 조건 |
 |---|---|
 | 니사라트 ANNA - SILVER | 품절 → 구매 가능 |
-| 이발레샵 Yumiko - Anna (Silver) | L 옵션의 `[품절]` 해제 |
+| 이발레샵 Yumiko - Anna (Silver) | L 옵션의 `[품절]` 해제 (샵에 재입고 알림 기능 없음) |
 | 탑토 전설의 안나♪ | 품절 → 구매 가능 |
 | 탑토 Anna 카테고리 | 이름에 Silver 들어간 신규 상품 |
 | 브이데니에 유미코 카테고리 | Anna 신규 상품 / L 사이즈 등장 |

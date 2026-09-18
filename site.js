@@ -15,7 +15,7 @@ const SITE = {
 // 페이지에 보여줄 샵. key는 check.js의 source key와 같아야 한다.
 const SHOPS = [
   { key: 'nisarat', name: '니사라트', price: '148,000원', where: '온라인 · 매장', url: 'https://nisarat.shop/product/detail.html?product_no=2936&cate_no=141&display_group=1' },
-  { key: 'eballetshop', name: '이발레샵', price: '159,000원', where: '온라인 · 분당', url: 'https://www.eballetshop.com/goods/goods_view.php?goodsNo=9199' },
+  { key: 'eballetshop', name: '이발레샵', price: '159,000원', where: '온라인 · 분당', noAlert: true, url: 'https://www.eballetshop.com/goods/goods_view.php?goodsNo=9199' },
   { key: 'toptoe', name: '탑토', price: '172,000원', where: '온라인 · 왕십리', url: 'http://toptoe.kr/shop/shopdetail.html?branduid=12256184' },
 ];
 const LISTS = [
@@ -61,7 +61,7 @@ function render(st) {
         <div class="row"><div class="name">${esc(sh.name)}</div><div class="badge">${label}</div></div>
         <div class="meta">${esc(sh.price)} · ${esc(sh.where)}</div>
         ${/\[품절\]/.test(sh.detail) ? `<div class="detail">사이즈: ${esc(sh.detail)}</div>` : ''}
-        <div class="go">${sh.status === 'in_stock' ? '바로 구매하기 →' : '상품 페이지 · 재입고 알림 신청 →'}</div>
+        <div class="go">${sh.status === 'in_stock' ? '바로 구매하기 →' : sh.noAlert ? '상품 페이지 · 상품문의로 재입고 문의 →' : '상품 페이지 · 재입고 알림 신청 →'}</div>
       </a>`;
     })
     .join('\n');
