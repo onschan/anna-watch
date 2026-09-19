@@ -1,7 +1,7 @@
 {
   "title": "전설의 안나 입고 현황",
   "subtitle": "Yumiko Anna Duo · Silver · L",
-  "checkedAt": "2026-09-19T04:51:05.002Z",
+  "checkedAt": "2026-09-19T05:51:11.128Z",
   "available": [],
   "shops": [
     {
@@ -12,7 +12,7 @@
       "url": "https://nisarat.shop/product/detail.html?product_no=2936&cate_no=141&display_group=1",
       "status": "sold_out",
       "detail": "품절 표시",
-      "checkedAt": "2026-09-19T04:51:01.454Z"
+      "checkedAt": "2026-09-19T05:51:07.908Z"
     },
     {
       "key": "eballetshop",
@@ -23,7 +23,7 @@
       "url": "https://www.eballetshop.com/goods/goods_view.php?goodsNo=9199",
       "status": "sold_out",
       "detail": "옵션 영역 못 찾음",
-      "checkedAt": "2026-09-19T04:51:01.905Z"
+      "checkedAt": "2026-09-19T05:51:08.368Z"
     },
     {
       "key": "toptoe",
@@ -34,7 +34,7 @@
       "url": "http://toptoe.kr/shop/shopdetail.html?branduid=12256184",
       "status": "sold_out",
       "detail": "품절 표시",
-      "checkedAt": "2026-09-19T04:51:02.086Z"
+      "checkedAt": "2026-09-19T05:51:08.561Z"
     }
   ],
   "lists": [
@@ -43,28 +43,28 @@
       "name": "탑토 신규 실버",
       "detail": "실버 상품 1개",
       "ok": true,
-      "checkedAt": "2026-09-19T04:51:02.210Z"
+      "checkedAt": "2026-09-19T05:51:08.694Z"
     },
     {
       "key": "vdenie",
       "name": "브이데니에",
       "detail": "Anna 1개",
       "ok": true,
-      "checkedAt": "2026-09-19T04:51:02.533Z"
+      "checkedAt": "2026-09-19T05:51:09.057Z"
     },
     {
       "key": "renverse",
       "name": "랑베르쎄",
       "detail": "유미코 34개 중 안나 0개",
       "ok": true,
-      "checkedAt": "2026-09-19T04:51:03.200Z"
+      "checkedAt": "2026-09-19T05:51:09.486Z"
     },
     {
       "key": "yumiko-rtw",
       "name": "Yumiko 공식 기성품",
       "detail": "3/3 리전 조회, Anna 실버 0개",
       "ok": true,
-      "checkedAt": "2026-09-19T04:51:05.002Z"
+      "checkedAt": "2026-09-19T05:51:11.128Z"
     }
   ],
   "always": [
